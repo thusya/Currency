@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ds_white">#fff</color>
+    <color name="ds_black">#212121</color>
+    <color name="ds_silver">#4B595E</color>
+    <color name="ds_blue">#3971D5</color>
+    <color name="ds_gray">#C0C0C0</color>
+    <color name="ds_orange">#ff8800</color>
+</resources>

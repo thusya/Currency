@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.thus.core.base'
+    compileSdk build_versions.compile_sdk
+
+    defaultConfig {
+//        applicationId "com.thus.core.base"
+        minSdk build_versions.min_sdk
+        targetSdk build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlin.stdlib
+    implementation deps.app_compat
+    implementation deps.core_ktx
+
+    testImplementation deps.junit
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation deps.atsl.core
+    androidTestImplementation deps.atsl.ext_junit
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.room.testing
+
+    // Espresso UI Testing
+    androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
+    androidTestImplementation deps.espresso.intents
+
+    // Navigation
+    implementation deps.navigation.runtime_ktx
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui_ktx
+
+    // Dagger
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    implementation deps.dagger.hilt_android
+    kapt deps.dagger.compiler
+    kapt deps.dagger.dagger_android_processor
+    kapt deps.dagger.hilt_compiler
+
+    implementation deps.okhttp_logging_interceptor
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.rxjava2
+}
+
+kapt {
+    correctErrorTypes true
+}

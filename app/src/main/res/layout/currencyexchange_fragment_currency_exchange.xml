@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/vSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnTry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ds_spacing_16"
+                    android:text="@string/button_try_again"
+                    android:textColor="@color/ds_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvErrorText" />
+
+                <TextView
+                    android:id="@+id/tvErrorText"
+                    style="@style/DsTextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/error_common_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ds_spacing_8"
+                    app:cardCornerRadius="@dimen/ds_radius_4"
+                    app:cardElevation="@dimen/ds_spacing_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/ds_spacing_8">
+
+                        <ImageView
+                            android:id="@+id/ivOption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/text_description"
+                            android:padding="@dimen/ds_spacing_8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_checked" />
+
+                        <ImageView
+                            android:id="@+id/ivStar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/text_description"
+                            android:padding="@dimen/ds_spacing_8"
+                            app:layout_constraintStart_toEndOf="@+id/ivOption"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_unstar" />
+
+
+                        <TextView
+                            android:id="@+id/tvStart"
+                            style="@style/DsTextNormal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/ds_spacing_12"
+                            android:layout_marginEnd="@dimen/ds_spacing_8"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            app:layout_constraintBottom_toBottomOf="@+id/ivOption"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivStar"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="USD" />
+
+
+                        <EditText
+                            android:id="@+id/etBaseValue"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/ds_spacing_8"
+                            android:gravity="end|center_vertical"
+                            android:hint="@string/text_hint_input_base"
+                            android:inputType="numberDecimal"
+                            android:textSize="@dimen/ds_text_size_large"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/tvEnd"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ivOption" />
+
+                        <TextView
+                            android:id="@+id/tvEnd"
+                            style="@style/DsTextLarge.Bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/etBaseValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="USD" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/ds_spacing_8"
+                    android:layout_marginTop="@dimen/ds_spacing_8"
+                    android:layout_marginEnd="@dimen/ds_spacing_8"
+                    android:hint="@string/text_hint_input_search"
+                    android:textSize="@dimen/ds_text_size_middle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvBase" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecordList"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/ds_spacing_8"
+                    android:padding="@dimen/ds_spacing_4"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etSearch"
+                    tools:listitem="@layout/currencyexchange_item_one_row"
+                    tools:visibility="visible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ToolBarStyle" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

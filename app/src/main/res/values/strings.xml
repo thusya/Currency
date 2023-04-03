@@ -1,0 +1,10 @@
+<resources>
+    <string name="error_common_text">Please check your Internet connection and try again!\n%s</string>
+    <string name="button_try_again">Try again</string>
+    <string name="text_ok">OK</string>
+    <string name="text_title_currency">Currency</string>
+    <string name="text_title_currency_with_timestamp">Currency - Updated %s</string>
+    <string name="text_hint_input_base">Type your money 999.99</string>
+    <string name="text_hint_input_search">Type your currency to search</string>
+    <string name="text_description">Description</string>
+</resources>
